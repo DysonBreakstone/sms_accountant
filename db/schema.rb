@@ -33,7 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_002622) do
   create_table "receipts", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "vendor_id"
-    t.float "total_price"
+    t.float "price_before_taxes"
+    t.float "price_after_taxes"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_002622) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
     t.string "name"
     t.string "phone_number"
     t.string "password_digest"
