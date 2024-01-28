@@ -5,6 +5,7 @@ class CreateReceiptItem < ActiveRecord::Migration[7.0]
       t.bigint :receipt_id
       t.string :alias
       t.float :price
+      t.float :unit_price
 
       t.timestamps
     end

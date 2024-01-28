@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_172026) do
     t.bigint "receipt_id"
     t.string "alias"
     t.float "price"
+    t.float "unit_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
