@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Alias do 
+RSpec.describe ItemAlias do 
   before do
     model_test_data
   end
 
   it "exists" do
-    expect(@alias_1).to be_a(Alias)
+    expect(@item_alias_1).to be_a(ItemAlias)
   end
 end
