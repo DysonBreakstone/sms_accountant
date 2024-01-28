@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Receipt do 
+RSpec.describe ReceiptItem do 
   before do
     model_test_data
   end
 
   it "exists" do
-    expect(@receipt).to be_a(Receipt)
+    expect(@receipt_item_1).to be_a(ReceiptItem)
   end
 end
