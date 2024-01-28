@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_28_172026) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_28_182102) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "aliases", force: :cascade do |t|
+  create_table "item_aliases", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
     t.string "alias_name"
