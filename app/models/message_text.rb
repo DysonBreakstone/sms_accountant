@@ -1,0 +1,3 @@
+class MessageText < ApplicationRecord
+  
+end
