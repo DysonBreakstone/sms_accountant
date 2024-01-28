@@ -3,7 +3,8 @@ class CreateReceipts < ActiveRecord::Migration[7.0]
     create_table :receipts do |t|
       t.bigint :user_id
       t.bigint :vendor_id
-      t.float :total_price
+      t.float :price_before_taxes
+      t.float :price_after_taxes
       t.string :category
 
       t.timestamps
