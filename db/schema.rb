@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_002622) do
     t.float "price_before_taxes"
     t.float "price_after_taxes"
     t.string "category"
+    t.boolean "requires_attention"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"

@@ -6,6 +6,7 @@ class CreateReceipts < ActiveRecord::Migration[7.0]
       t.float :price_before_taxes
       t.float :price_after_taxes
       t.string :category
+      t.boolean :requires_attention
 
       t.timestamps
     end
