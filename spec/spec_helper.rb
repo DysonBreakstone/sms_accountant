@@ -92,5 +92,11 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  
+  def model_test_data
+    @user = User.create!(username: "username", name: "User", phone_number: "8025950053", password: "password", role: "user")
+    @vendor = Vendor.create!(name: "Vendor", default_category: "Groceries")
+    @item_1 = Item.create!(vendor: @vendor, name: "item_1_name", price: 1.50)
+    @item_2 = Item.create!(vendor: @vendor, name: "item_2_name", price: 2.00)
+    @receipt = Receipt.create!(user: @user, vendor: @vendor, price_after_taxes: (@item_1.price + @item_2.price) * 1.09)
+  end
 end
