@@ -5,7 +5,13 @@ RSpec.describe Vendor do
     model_test_data
   end
 
-  it "exists" do
-    expect(@vendor).to be_a(Vendor)
+  describe "existence and relationships" do
+    it { should have_many :receipts }
+    it { should have_many(:users).through :receipts }
+    it { should have_many :items }
+    
+    it "exists" do
+      expect(@vendor).to be_a(Vendor)
+    end
   end
 end

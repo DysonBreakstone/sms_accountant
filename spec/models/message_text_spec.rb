@@ -5,7 +5,9 @@ RSpec.describe MessageText do
     model_test_data
   end
 
-  it "exists" do
-    expect(@vendor).to be_a(Vendor)
+  describe "existence and relationships" do
+    it "exists" do
+      expect(@vendor).to be_a(Vendor)
+    end
   end
 end

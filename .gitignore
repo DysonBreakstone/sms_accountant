@@ -29,3 +29,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore simplecov index files
+/coverage
+
+# Ignore application configuration
+/config/application.yml
+
+
