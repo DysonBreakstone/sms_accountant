@@ -91,16 +91,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-  def model_test_data
-    @user = User.create!(username: "username", name: "User", phone_number: "8025950053", password: "password", role: "user")
-    @vendor = Vendor.create!(name: "Vendor", default_category: "Groceries")
-    @item_1 = Item.create!(vendor: @vendor, name: "item_1_name")
-    @item_2 = Item.create!(vendor: @vendor, name: "item_2_name")
-    @item_alias_1 = ItemAlias.create!(user: @user, item: @item_1, alias_name: "item_1_alias")
-    @item_alias_2 = ItemAlias.create!(user: @user, item: @item_2, alias_name: "item_2_alias")
-    @receipt = Receipt.create!(user: @user, vendor: @vendor, price_after_taxes: 3.50 * 1.09)
-    @receipt_item_1 = ReceiptItem.create!(item: @item_1, receipt: @receipt, price: 1.50, item_alias: @receipt.user.item_aliases.find_by(item: @item_1).alias_name)
-    @receipt_item_2 = ReceiptItem.create!(item: @item_2, receipt: @receipt, price: 2.50, item_alias: @receipt.user.item_aliases.find_by(item: @item_1).alias_name)
-  end
 end
