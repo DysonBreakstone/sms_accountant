@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem "figaro"
 gem "faraday"
 gem "bcrypt"
+gem "aws-sdk-s3"
 
 group :test do
   gem "rspec-rails"

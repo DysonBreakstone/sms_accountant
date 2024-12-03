@@ -1,0 +1,6 @@
+<%= form_with model: @receipt, local: true do |f| %>
+  <%= f.number_field :user_id, value: User.first.id %>
+  <%= f.number_field :vendor_id, value: Vendor.first.id %>
+  <%= f.file_field :reciept_photo %>
+  <%= f.submit %>
+<% end %>
