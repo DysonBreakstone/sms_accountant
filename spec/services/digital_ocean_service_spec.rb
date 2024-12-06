@@ -9,7 +9,7 @@ RSpec.describe DigitalOceanService do
   xit "should upload and destroy images" do
     user = User.create!(password: "password")
     service = DigitalOceanService.new
-    object_key = "test/test_object"
+    object_key = "test/baby_cakes"
 
     original_image_count = service.list_objects(bucket: "cashyou-receipts").count
     
@@ -20,6 +20,18 @@ RSpec.describe DigitalOceanService do
     service.delete_receipt(keys: object_key)
 
     expect(service.list_objects(bucket: "cashyou-receipts").count).to eq(original_image_count)
+  end
+
+  it "generates presigned url with 'cashew-receipts' default" do
+    service = DigitalOceanService.new
+    url = service.generate_presigned_url(object_key: "bilbo-baggins")
+    expect(url).not_to be_nil
+    expect(url).to be_a(String)
+    expect(url.match(/^https\/\/sfo2.digitaloceanspaces.com\/cashyou-receipts\/bilbo_baggins/))
+  end
+
+  it "should authorize google vision requests" do
+
   end
 
 end

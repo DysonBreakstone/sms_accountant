@@ -52,6 +52,8 @@ gem "figaro"
 gem "faraday"
 gem "bcrypt"
 gem "aws-sdk-s3"
+gem "google-cloud-vision"
+gem 'faraday'
 
 group :test do
   gem "rspec-rails"

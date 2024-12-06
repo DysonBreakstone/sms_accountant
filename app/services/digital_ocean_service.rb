@@ -41,4 +41,15 @@ class DigitalOceanService
     })
     resp
   end
+
+  def generate_presigned_url(bucket_name: "cashew-receipts", object_key:, expires_in: 3600)
+    signer = Aws::S3::Presigner.new(client: CLIENT)
+
+    signer.presigned_url(
+      :get_object,
+      bucket: bucket_name,
+      key: object_key,
+      expires_in: expires_in
+    )
+  end
 end
