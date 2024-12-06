@@ -14,7 +14,6 @@ class VisionApiService
     body = build_text_detection_request_body(image_url)
     endpoint = "/v1/images:annotate?key=#{API_KEY}"
     response = conn.post(endpoint, body)
-    require 'pry'; binding.pry
   end
   
   private
