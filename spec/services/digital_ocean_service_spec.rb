@@ -31,7 +31,12 @@ RSpec.describe DigitalOceanService do
   end
 
   it "should authorize google vision requests" do
-
+    service = DigitalOceanService.new
+    object_key = "panda_express_1"
+    service.delete_receipt(keys: object_key)
+    service.upload_receipt!(filename: Rails.root.join("lib", "assets", "panda_express_1.jpg").to_s, object_key: object_key)
+    response = VisionApiService.new.make_text_detection_http_call(object_key: object_key)
+    service.delete_receipt(keys: object_key)
   end
 
 end

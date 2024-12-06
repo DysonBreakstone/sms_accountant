@@ -42,7 +42,7 @@ class DigitalOceanService
     resp
   end
 
-  def generate_presigned_url(bucket_name: "cashew-receipts", object_key:, expires_in: 3600)
+  def generate_presigned_url(bucket_name: "cashyou-receipts", object_key:, expires_in: 3600)
     signer = Aws::S3::Presigner.new(client: CLIENT)
 
     signer.presigned_url(
