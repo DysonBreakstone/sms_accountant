@@ -6,7 +6,6 @@ class ReceiptsController < ApplicationController
 
   def create
     a = Receipt.create(receipt_params)
-    require 'pry'; binding.pry
   end
 
   def index

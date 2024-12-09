@@ -6,14 +6,14 @@ RSpec.describe DigitalOceanService do
     expect(service.list_buckets.count).to eq(1)
   end
 
-  xit "should upload and destroy images" do
+  it "should upload and destroy images" do
     user = User.create!(password: "password")
     service = DigitalOceanService.new
     object_key = "test/baby_cakes"
 
     original_image_count = service.list_objects(bucket: "cashyou-receipts").count
     
-    service.upload_receipt!(filename: Rails.root.join("lib", "assets", "moon_jars.jpg").to_s, object_key: object_key)
+    ret = service.upload_receipt!(filename: Rails.root.join("spec", "fixtures", "images", "panda_express_1.jpg").to_s, object_key: object_key)
 
     expect(service.list_objects(bucket: "cashyou-receipts").count).to eq(original_image_count + 1)
     
@@ -32,9 +32,9 @@ RSpec.describe DigitalOceanService do
 
   it "should authorize google vision requests" do
     service = DigitalOceanService.new
-    object_key = "panda_express_1"
+    object_key = "hmart_1"
     service.delete_receipt(keys: object_key)
-    service.upload_receipt!(filename: Rails.root.join("lib", "assets", "panda_express_1.jpg").to_s, object_key: object_key)
+    service.upload_receipt!(filename: Rails.root.join("spec", "fixtures", "images", "hmart_1.jpg").to_s, object_key: object_key)
     response = VisionApiService.new.make_text_detection_http_call(object_key: object_key)
     service.delete_receipt(keys: object_key)
   end

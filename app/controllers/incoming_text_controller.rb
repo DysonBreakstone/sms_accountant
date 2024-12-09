@@ -1,0 +1,3 @@
+class IncomingTextController < ApplicationController
+  
+end
