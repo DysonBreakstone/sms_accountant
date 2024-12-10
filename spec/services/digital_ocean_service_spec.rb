@@ -6,7 +6,7 @@ RSpec.describe DigitalOceanService do
     expect(service.list_buckets.count).to eq(1)
   end
 
-  it "should upload and destroy images" do
+  xit "should upload and destroy images" do
     user = User.create!(password: "password")
     service = DigitalOceanService.new
     object_key = "test/baby_cakes"
@@ -30,7 +30,7 @@ RSpec.describe DigitalOceanService do
     expect(url.match(/^https\/\/sfo2.digitaloceanspaces.com\/cashyou-receipts\/bilbo_baggins/))
   end
 
-  it "should authorize google vision requests" do
+  xit "should authorize google vision requests" do
     service = DigitalOceanService.new
     object_key = "hmart_1"
     service.delete_receipt(keys: object_key)

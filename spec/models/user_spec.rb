@@ -10,7 +10,7 @@ RSpec.describe User do
     it { should have_many :item_aliases }
     
     it "exists" do
-      expect(@vendor).to be_a(Vendor)
+      expect(@user).to be_a(User)
     end
   end
 end

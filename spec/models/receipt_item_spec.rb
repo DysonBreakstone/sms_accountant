@@ -10,7 +10,7 @@ RSpec.describe ReceiptItem do
     it { should belong_to :item }
 
     it "exists" do
-      expect(@receipt_item_1).to be_a(ReceiptItem)
+      expect(@receipt_item).to be_a(ReceiptItem)
     end
   end  
 end

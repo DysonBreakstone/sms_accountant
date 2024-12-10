@@ -7,7 +7,7 @@ RSpec.describe MessageText do
 
   describe "existence and relationships" do
     it "exists" do
-      expect(@vendor).to be_a(Vendor)
+      expect(@message_text).to be_a(MessageText)
     end
   end
 end

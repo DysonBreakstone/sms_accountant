@@ -12,7 +12,7 @@ RSpec.describe Item do
     it { should have_many :item_aliases }
     
     it "exists" do
-      expect(@vendor).to be_a(Vendor)
+      expect(@item).to be_a(Item)
     end
   end
 end

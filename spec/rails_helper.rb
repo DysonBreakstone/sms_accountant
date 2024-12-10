@@ -62,6 +62,19 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   def model_test_data
-    
+    @user = User.create!(password: "password")
+    @vendor = Vendor.create!(name: "King Soopers", default_category: "grocery")
+    @receipt = Receipt.create!(vendor: @vendor, user: @user)
+    @item = Item.create!(name: "fulgora wpt crm 86", vendor: @vendor)
+    @receipt_item = ReceiptItem.create!(receipt: @receipt, item: @item)
+    @item_alias = ItemAlias.create!(item: @item, user: @user, alias_name: "Fulgora Whipped Cream")
+    @message_text = MessageText.create!
+  end
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
   end
 end
