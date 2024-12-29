@@ -9,7 +9,7 @@ RSpec.describe DigitalOceanService do
   xit "should upload and destroy images" do
     user = User.create!(password: "password")
     service = DigitalOceanService.new
-    object_key = "test/baby_cakes"
+    object_key = "test/test_image"
 
     original_image_count = service.list_objects(bucket: "cashyou-receipts").count
     
@@ -22,7 +22,7 @@ RSpec.describe DigitalOceanService do
     expect(service.list_objects(bucket: "cashyou-receipts").count).to eq(original_image_count)
   end
 
-  it "generates presigned url with 'cashew-receipts' default" do
+  it "generates presigned url with 'cashyou-receipts' default" do
     service = DigitalOceanService.new
     url = service.generate_presigned_url(object_key: "bilbo-baggins")
     expect(url).not_to be_nil
