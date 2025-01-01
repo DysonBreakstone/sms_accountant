@@ -19,7 +19,7 @@ namespace :api do
     filename = Rails.root.join(ENV["FILENAME"])
     object_key = "test/#{ENV["OBJECT"]}"
 
-    success = DigitalOceanService.new.upload_receipt!(filename: filename, object_key: object_key)
+    success = AwsService.new.upload_receipt!(filename: filename, object_key: object_key)
     if !success.present?
       puts "RECEIPT FAILED TO UPLOAD - HERE'S THE INFO WE HAVE:"
       puts success

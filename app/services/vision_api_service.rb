@@ -10,7 +10,7 @@ class VisionApiService
   def make_text_detection_http_call(object_key:)
     vision_url = "https://vision.googleapis.com"
     conn = create_connection(vision_url)
-    image_url = build_digital_ocean_url(object_key: object_key)
+    image_url = build_aws_url(object_key: object_key)
     body = build_text_detection_request_body(image_url)
     endpoint = "/v1/images:annotate?key=#{API_KEY}"
     response = conn.post(endpoint, body)
@@ -19,8 +19,8 @@ class VisionApiService
   private
     
 
-    def build_digital_ocean_url(object_key:)
-      DigitalOceanService.new.generate_presigned_url(object_key: object_key)
+    def build_aws_url(object_key:)
+      AwsService.new.generate_presigned_url(object_key: object_key)
     end
 
     def build_text_detection_request_body(image_url)

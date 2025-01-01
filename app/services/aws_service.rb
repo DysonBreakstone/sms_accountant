@@ -1,10 +1,9 @@
-class DigitalOceanService
+class AwsService
   CLIENT = Aws::S3::Client.new(
-    access_key_id: ENV['RECEIPTS_ACCESS_KEY'],
-    secret_access_key: ENV['RECEIPTS_SECRET_KEY'],
-    endpoint: ENV['RECEIPTS_ORIGIN_ENDPOINT'],
+    access_key_id: ENV['S3_ACCESS_KEY'],
+    secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
     force_path_style: true, 
-    region: ENV['RECEIPTS_REGION']
+    region: ENV['S3_BUCKET_REGION']
   )
 
   def list_buckets
@@ -20,7 +19,7 @@ class DigitalOceanService
     File.open(filename, "rb") do |file|
       CLIENT.put_object({
         body: file,
-        bucket: "cashyou-receipts",
+        bucket: ENV["S3_BUCKET_NAME"],
         key: object_key,
         metadata: {
           "updload_date"=>Date.today.to_s
@@ -33,7 +32,7 @@ class DigitalOceanService
   def delete_receipt(keys:)
     keys = Array(keys)
     resp = CLIENT.delete_objects({
-      bucket: "cashyou-receipts",
+      bucket: ENV["S3_BUCKET_NAME"],
       delete: {
         objects: keys.map{ |key| {key: key}},
         quiet: false
